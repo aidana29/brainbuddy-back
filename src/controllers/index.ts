@@ -1,4 +1,5 @@
 import userController from "./userController";
+import mainController from "./mainController";
 
-export {userController}
+export { userController, mainController }
 

@@ -1,4 +1,4 @@
 import userDao from "./userDao"
-// import questionsDao from "./questionsDao"
+import mainDao from "./mainDao"
 
-export { userDao }
+export { userDao, mainDao }
