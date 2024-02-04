@@ -23,6 +23,7 @@ const login = async (req: Request,
   res: Response,
   next: NextFunction) => {
   try {
+    console.log(req.body)
     const { email, password } = req.body;
     const token = await userService.login(email, password);
 
