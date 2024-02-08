@@ -2,10 +2,10 @@ import { DataSource } from "typeorm";
 
 const AppDataSource = new DataSource({
   type: "mysql",
-  host: process.env.TYPEORM_HOST,
-  username: process.env.TYPEORM_USERNAME,
-  password: process.env.TYPEORM_PASSWORD,
-  database: process.env.TYPEORM_DATABASE,
+  host: process.env.RDS_ENDPOINT,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME,
   port: 3306,
 });
 
