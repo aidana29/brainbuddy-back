@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 
-const AppDataSource = new DataSource ({
+const AppDataSource = new DataSource({
   type: "mysql",
   host: process.env.TYPEORM_HOST,
   username: process.env.TYPEORM_USERNAME,

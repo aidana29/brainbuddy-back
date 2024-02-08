@@ -8,7 +8,6 @@ const registration = async (
 ) => {
   try {
     const { nickname, email, password } = req.body;
-
     await userService.registration(nickname, email, password);
 
     res.status(201).json({
@@ -19,14 +18,11 @@ const registration = async (
   }
 };
 
-const login = async (req: Request,
-  res: Response,
-  next: NextFunction) => {
+const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    console.log(req.body)
     const { email, password } = req.body;
     const userData = await userService.login(email, password);
-
+    
     res.status(200).json({
       message: "LOGIN_SUCCESS",
       nickname: userData.nickname,

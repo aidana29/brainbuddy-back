@@ -18,7 +18,6 @@ app.use(
 );
 app.use(router);
 
-
 const port = process.env.PORT;
 
 app.get("/", (req, res) => {
