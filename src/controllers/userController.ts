@@ -8,27 +8,25 @@ const registration = async (
 ) => {
   try {
     const { nickname, email, password } = req.body;
-
     await userService.registration(nickname, email, password);
 
     res.status(201).json({
-      message: "SIGN UP SUCCESS",
+      message: "SIGNUP_SUCCESS",
     });
   } catch (err) {
     next(err);
   }
 };
 
-const login = async (req: Request,
-  res: Response,
-  next: NextFunction) => {
+const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { email, password } = req.body;
-    const token = await userService.login(email, password);
-
+    const userData = await userService.login(email, password);
+    
     res.status(200).json({
       message: "LOGIN_SUCCESS",
-      token: token,
+      nickname: userData.nickname,
+      token: userData.token,
     });
   } catch (err) {
     next(err);

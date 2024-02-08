@@ -13,7 +13,6 @@ const registration = async (
   email: string,
   password: string
 ) => {
-
   if (!email || !password || !nickname) {
     const err: Error = new Error("KEY_ERROR");
     err.status = 400;
@@ -52,12 +51,13 @@ const login = async (email: string, password: string) => {
     throw error;
   }
 
+  const nickname = existingUser.nickname;
   const token = jwt.sign(
     { userId: existingUser.id },
     process.env.JWT_SECRET as string
   );
 
-  return token;
+  return { token, nickname };
 };
 
 export default { registration, login };

@@ -20,8 +20,15 @@ const existingUserByEmail = async (email: string) => {
     `SELECT * FROM users WHERE email = ?`,
     [email]
   );
-
   return existingUser;
 };
 
-export default { userRegistration, existingUserByEmail };
+const existingUserById = async (userId: number) => {
+  const existingUser = await AppDataSource.query(
+    `SELECT * FROM users WHERE id = ?`,
+    [userId]
+  );
+  return existingUser;
+};
+
+export default { userRegistration, existingUserByEmail, existingUserById };
